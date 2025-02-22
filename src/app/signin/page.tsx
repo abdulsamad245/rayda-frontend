@@ -108,12 +108,7 @@ export default function Signin() {
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-gray-700"
                     >
-                      <Image
-                        src={showPassword ? EyeIcon : EyeOffIcon}
-                        alt={showPassword ? "Show password" : "Hide password"}
-                        width={20}
-                        height={20}
-                      />
+{showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
                     </button>
                   </div>
                   <ErrorMessage
