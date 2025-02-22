@@ -7,6 +7,7 @@ import { logout } from "../../lib/features/authSlice";
 import type { AppDispatch, RootState } from "../../lib/store";
 import { useRouter } from "next/navigation";
 import { getCookie } from "@/lib/utils/cookies";
+import { showToast } from "@/lib/toast";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,8 +36,13 @@ export default function Navigation() {
   }, [token, user]);
 
   const handleLogout = async () => {
-    await dispatch(logout());
-    router.push("/");
+    const result = await dispatch(logout());
+    if (logout.fulfilled.match(result)) {
+      showToast.success("Sign out successful!");
+      router.push("/");
+    }else {
+      showToast.error("Failed to Sign out!");
+    }
   };
 
   return (
@@ -65,7 +71,7 @@ export default function Navigation() {
                     onClick={handleLogout}
                     className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
                   >
-                    Logout
+                    Sign out
                   </button>
                 </>
               ) : (

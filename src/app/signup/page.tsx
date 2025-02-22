@@ -9,9 +9,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { showToast } from "../../lib/toast";
 import { useState } from "react";
-import EyeIcon from "../../../public/icons/eye.svg";
-import EyeOffIcon from "../../../public/icons/eye-off.svg";
-import Image from "next/image";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const initialValues = {
   name: "",
@@ -140,12 +138,7 @@ export default function Signup() {
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-gray-700"
                     >
-                      <Image
-                        src={showPassword ? EyeIcon : EyeOffIcon}
-                        alt={showPassword ? "Show password" : "Hide password"}
-                        width={20}
-                        height={20}
-                      />
+                      {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
                     </button>
                   </div>
                   <ErrorMessage
@@ -171,19 +164,10 @@ export default function Signup() {
                     />
                     <button
                       type="button"
-                      onClick={() => setShowConfirmPassword(!showPassword)}
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                       className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-gray-700"
                     >
-                      <Image
-                        src={showConfirmPassword ? EyeIcon : EyeOffIcon}
-                        alt={
-                          showConfirmPassword
-                            ? "Show password"
-                            : "Hide password"
-                        }
-                        width={20}
-                        height={20}
-                      />
+                      {showConfirmPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
                     </button>
                   </div>
                   <ErrorMessage

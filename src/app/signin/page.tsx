@@ -9,9 +9,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { showToast } from "../../lib/toast";
 import { useState } from "react";
-import EyeIcon from "../../../public/icons/eye.svg";
-import EyeOffIcon from "../../../public/icons/eye-off.svg";
-import Image from "next/image";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const initialValues = {
   email: "",

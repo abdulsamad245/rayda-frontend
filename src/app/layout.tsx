@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en" className="h-full bg-gray-100">
       <body className={`h-full ${inter.className}`}>
         <Providers>
-          <div className="min-h-full bg-gray-100">
+          <div className="min-h-full">
             <Navigation />
             <main className="mx-auto">
               {children}
