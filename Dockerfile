@@ -8,7 +8,7 @@ RUN apk add --no-cache libc6-compat git
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
+RUN npm ci
 
 # Builder
 FROM base AS builder
