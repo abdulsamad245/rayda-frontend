@@ -9,7 +9,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { showToast } from "../../lib/toast";
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const initialValues = {
   email: "",
@@ -31,8 +31,7 @@ const handleSubmit =
       if (login.fulfilled.match(result)) {
         showToast.success("Signin successful!");
         router.push("/tasks");
-        
-      }else {
+      } else {
         showToast.error(result.error?.message || "Failed to Sign in");
       }
     } catch (error: unknown) {
@@ -106,7 +105,11 @@ export default function Signin() {
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-gray-700"
                     >
-{showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+                      {showPassword ? (
+                        <FaEyeSlash size={20} />
+                      ) : (
+                        <FaEye size={20} />
+                      )}
                     </button>
                   </div>
                   <ErrorMessage
