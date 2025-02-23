@@ -73,6 +73,6 @@ To run the application using Docker:
 2. Run the container:
 
    ```sh
-   docker run -p 3000:3000 -e NEXT_PUBLIC_API_URL=http://127.0.0.1:8000/api/v1 rayda-frontend
+   docker run -p 3000:3000 rayda-frontend
    ```
 

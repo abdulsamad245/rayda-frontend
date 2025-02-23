@@ -1,4 +1,5 @@
 FROM node:20-alpine AS base
+ARG SETUP_ENVINROMENT=local
 
 ### Dependencies ###
 FROM base AS deps
@@ -13,6 +14,9 @@ RUN npm install --frozen-lockfile
 FROM base AS builder
 
 WORKDIR /app
+
+# Copy the .env{SETUP_ENVINROMENT} file to the container
+COPY .env.$SETUP_ENVINROMENT.sample .env
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
